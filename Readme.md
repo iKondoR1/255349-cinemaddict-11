@@ -1,7 +1,7 @@
 # Личный проект «Киноман» [![Build status][travis-image]][travis-url]
 
 * Студент: [Олег Власов](https://up.htmlacademy.ru/ecmascript/11/user/255349).
-* Наставник: `Неизвестно`.
+* Наставник: `Александр Белокур`.
 
 ---
 
