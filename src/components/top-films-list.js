@@ -9,4 +9,4 @@ const createTopFilmCardContainerTemplate = () => {
 };
 
 
-export {createFilmsContainerTemplate};
+export {createTopFilmCardContainerTemplate};
