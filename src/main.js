@@ -19,7 +19,6 @@ const siteMainElement = document.querySelector(`.main`);
 render(siteMainElement, createMenuTemplate(), `beforeend`);
 render(siteMainElement, createSortTemplate(), `beforeend`);
 render(siteMainElement, createCardContainerTemplate(), `beforeend`);
-
 const siteCardCointainerElement = document.querySelector(`.films-list__container`);
 
 for (let i = 0; i < 5; i++) {
@@ -32,30 +31,27 @@ render(siteFilmsElement, createTopFilmCardContainerTemplate(), `beforeend`);
 render(siteFilmsElement, createTopFilmCardContainerTemplate(), `beforeend`);
 
 const siteTopCardElement = document.querySelectorAll(`.films-list--extra`);
-const siteTopCardListElement = siteTopCardElement[0].querySelector('.films-list__container');
+const siteTopCardListElement = siteTopCardElement[0].querySelector(`.films-list__container`);
 
 for (let i = 0; i < 2; i++) {
-	render(siteTopCardListElement, createFilmCardTemplate(), `beforeend`);
+  render(siteTopCardListElement, createFilmCardTemplate(), `beforeend`);
 }
 
-const siteTopCardListElementTwo = siteTopCardElement[1].querySelector('.films-list__container');
+const siteTopCardListElementTwo = siteTopCardElement[1].querySelector(`.films-list__container`);
 
 for (let i = 0; i < 2; i++) {
-	render(siteTopCardListElementTwo, createFilmCardTemplate(), `beforeend`);
+  render(siteTopCardListElementTwo, createFilmCardTemplate(), `beforeend`);
 }
 
 const siteFooterElement = document.querySelector(`.footer`);
-const siteFooterStatisticsElement = siteFooterElement.querySelector('.footer__statistics');
-render(siteFooterStatisticsElement, createFooterStatiscticsTemplate(), `beforeend`);
+const siteFooterStatisticsElement = siteFooterElement.querySelector(`.footer__statistics`);
+render(siteFooterStatisticsElement, createFooterStatisticsTemplate(), `beforeend`);
 
 const siteBodyElement = document.querySelector(`body`);
-renderComponent(siteBodyElement, createFullFilmDetailsTemplate(), `beforeEnd`);
+render(siteBodyElement, createFullFilmDetailsTemplate(), `beforeEnd`);
 
-  const filmDetails = document.querySelector(`.film-details`);
+const filmDetails = document.querySelector(`.film-details`);
 
-  if (filmDetails) {
-    filmDetails.style = `display: none`;
-  }
-});
-
-
+if (filmDetails) {
+  filmDetails.style = `display: none`;
+}
