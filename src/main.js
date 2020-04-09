@@ -50,7 +50,7 @@ render(siteFooterStatisticsElement, createFooterStatisticsTemplate(), `beforeend
 const siteBodyElement = document.querySelector(`body`);
 render(siteBodyElement, createFullFilmDetailsTemplate(), `beforeEnd`);
 
-const filmDetails = document.querySelector(`.film-details`);
+	const filmDetails = document.querySelector(`.film-details`);
 
 if (filmDetails) {
   filmDetails.style = `display: none`;
