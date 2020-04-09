@@ -7,6 +7,7 @@ import {createProfileNameTemplate} from './components/profile';
 import {createShowMoreButtonTemplate} from './components/show-more-button';
 import {createSortTemplate} from './components/sort';
 import {createTopFilmCardContainerTemplate} from './components/top-films-list';
+import {generateMenu} from './mock/menu.js';
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
@@ -16,7 +17,10 @@ const siteHeaderElement = document.querySelector(`.header`);
 render(siteHeaderElement, createProfileNameTemplate(), `beforeend`);
 
 const siteMainElement = document.querySelector(`.main`);
-render(siteMainElement, createMenuTemplate(), `beforeend`);
+
+const menus = generateMenu();
+render(siteMainElement, createMenuTemplate(menus), `beforeend`);
+
 render(siteMainElement, createSortTemplate(), `beforeend`);
 render(siteMainElement, createCardContainerTemplate(), `beforeend`);
 const siteCardCointainerElement = document.querySelector(`.films-list__container`);

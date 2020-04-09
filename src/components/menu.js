@@ -1,25 +1,24 @@
-const createMenuMarkup = (name, count) => {
-	const link = name.toLowerCase();
+const createMenuMarkup = (menu, isChecked) => {
+	const {name, count} = menu;
+	if (name === 'All movies') {
+		return `<a href="#all" class="main-navigation__item ${!isChecked ? `` : `main-navigation__item--active`}">All movies</a>`
+	}
+	else
+		{
+	
   return(
-  <a href="#${link}" class="main-navigation__item">${name}<span class="main-navigation__item-count">${count}</span></a>
+  `<a href="#${name.toLowerCase()}" class="main-navigation__item">${name}<span class="main-navigation__item-count ${isChecked ? `main-navigation__item--active` : ``}">${count}</span></a>`
   )
+		}
 }
 
+export const createMenuTemplate = (menus) => {
+	const menuMarkup = menus.map((it, i) => createMenuMarkup(it, i === 0)).join(`\n`);
 
-
-
-
-const createMenuTemplate = () => {
-	const menuMarkup = createMenuMarkup();
   return `<nav class="main-navigation">
     <div class="main-navigation__items">
-      <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
-      ${menuMarkup}
-      ${menuMarkup}
       ${menuMarkup}
     </div>
     <a href="#stats" class="main-navigation__additional">Stats</a>
   </nav>`;
 };
-
-export {createMenuTemplate};
