@@ -11,7 +11,7 @@ import {createCommentElement} from './components/comment';
 import {generateMenu} from './mock/menu.js';
 import {generateFilmCards} from './mock/filmcards.js';
 import {generateComment} from './mock/comments.js';
-import {randomInteger} from './utils.js';
+import {getRandomInteger} from './utils.js';
 
 
 const render = (container, template, place) => {
@@ -62,18 +62,18 @@ const siteTopCardElement = document.querySelectorAll(`.films-list--extra`);
 const siteTopCardListElement = siteTopCardElement[0].querySelector(`.films-list__container`);
 
 for (let i = 0; i < 2; i++) {
-  render(siteTopCardListElement, createFilmCardTemplate(movies[Math.floor(Math.random() * movies.length)]), `beforeend`);
+  render(siteTopCardListElement, createFilmCardTemplate(movies[getRandomInteger(0, movies.length - 1)]), `beforeend`);
 }
 
 const siteTopCardListElementTwo = siteTopCardElement[1].querySelector(`.films-list__container`);
 
 for (let i = 0; i < 2; i++) {
-  render(siteTopCardListElementTwo, createFilmCardTemplate(movies[Math.floor(Math.random() * movies.length)]), `beforeend`);
+  render(siteTopCardListElementTwo, createFilmCardTemplate(movies[getRandomInteger(0, movies.length - 1)]), `beforeend`);
 }
 
 const siteFooterElement = document.querySelector(`.footer`);
 const siteFooterStatisticsElement = siteFooterElement.querySelector(`.footer__statistics`);
-render(siteFooterStatisticsElement, createFooterStatisticsTemplate(randomInteger(0, 155)), `beforeend`);
+render(siteFooterStatisticsElement, createFooterStatisticsTemplate(getRandomInteger(0, 155)), `beforeend`);
 
 const siteBodyElement = document.querySelector(`body`);
 
@@ -87,5 +87,5 @@ const comments = generateComment();
 comments.forEach((element) => render(commentsElement, createCommentElement(element), `beforeend`));
 
 if (filmDetails) {
-  filmDetails.style = `display: none`;
+  filmDetails.style = `display:  none`;
 }

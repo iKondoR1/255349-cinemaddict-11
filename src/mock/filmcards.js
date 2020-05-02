@@ -1,4 +1,4 @@
-import {movieTime, getRandomCommentDate, randomInteger, getRandomArrayItem, getRandomArray} from "../utils.js";
+import {movieTime, getRandomCommentDate, getRandomInteger, getRandomArrayItem, getRandomArray} from "../utils.js";
 
 const TITLE = [`The Dance of Life`, `Sagebrush Trail`, `The Man with the Golden Arm`, `Santa Claus Conquers the Martians`, `Popeye the Sailor Meets Sindbad the Sailor`, `Reservoir Dogs`, `The Great Flamarion`, `Made for Each Other`, `The Seven Samurai`, `Bonnie and Clyde`];
 
@@ -45,7 +45,7 @@ const COUNTRY = [
 
 const MAX_DESCRIPTION = 140;
 
-const partOfArray = (array, sliceStart, sliceEnd) => getRandomArray(array).slice(0, randomInteger(sliceStart, sliceEnd));
+const partOfArray = (array, sliceStart, sliceEnd) => getRandomArray(array).slice(0, getRandomInteger(sliceStart, sliceEnd));
 
 const generateDescription = (text) => {
   const sentences = text.slice(0, -1).split(`. `);
@@ -64,21 +64,21 @@ const sliceLetters = (array) => {
 const generateFilmCards = () => {
   return TITLE.map((it) => {
     return {
-      cardTitle: it,
-      cardRating: Math.floor(Math.random() * 9) + `.` + Math.floor(Math.random() * 9),
-      cardYear: randomInteger(1950, 2019),
-      cardDuration: movieTime(Math.random() * 240),
-      cardGenre: getRandomArrayItem(GENRE),
-      cardPoster: getRandomArrayItem(POSTER),
-      cardDescription: sliceLetters(generateDescription(DESCRIPTION)),
-      cardComments: Math.floor(Math.random() * 100),
-      alternativeTitle: it,
+      title: it,
+      rating: getRandomInteger(0, 9) + `.` + getRandomInteger(0, 9),
+      year: getRandomInteger(1950, 2019),
+      duration: movieTime(Math.random() * 240),
+      genre: getRandomArrayItem(GENRE),
+      poster: getRandomArrayItem(POSTER),
+      description: sliceLetters(generateDescription(DESCRIPTION)),
+      comments: getRandomInteger(0, 100),
+      altTitle: it,
       ageRating: getRandomArrayItem(AGE_RATING),
-      cardDirector: getRandomArrayItem(DIRECTORS),
-      cardWriter: getRandomArrayItem(WRITERS) + `, ` + getRandomArrayItem(WRITERS) + `, ` + getRandomArrayItem(WRITERS),
-      cardActor: getRandomArrayItem(ACTORS) + `, ` + getRandomArrayItem(ACTORS) + `, ` + getRandomArrayItem(ACTORS),
-      cardDate: getRandomCommentDate(),
-      cardCountry: getRandomArrayItem(COUNTRY),
+      director: getRandomArrayItem(DIRECTORS),
+      writer: getRandomArrayItem(WRITERS) + `, ` + getRandomArrayItem(WRITERS) + `, ` + getRandomArrayItem(WRITERS),
+      actor: getRandomArrayItem(ACTORS) + `, ` + getRandomArrayItem(ACTORS) + `, ` + getRandomArrayItem(ACTORS),
+      date: getRandomCommentDate(),
+      country: getRandomArrayItem(COUNTRY),
     };
   });
 };

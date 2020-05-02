@@ -6,16 +6,16 @@ const movieTime = (time) => {
   return hours ? `${hours}h ${minutes}m` : `${minutes}m`;
 };
 
-const randomInteger = (min, max) => {
+const getRandomInteger = (min, max) => {
   let rand = min - 0.5 + Math.random() * (max - min + 1);
   return Math.round(rand);
 };
 
 const getRandomCommentDate = () => {
   const date = new Date();
-  const year = randomInteger(2018, 2020);
-  const month = randomInteger(0, 12);
-  const day = randomInteger(0, 28);
+  const year = getRandomInteger(2018, 2020);
+  const month = getRandomInteger(0, 12);
+  const day = getRandomInteger(0, 28);
   date.setFullYear(year, month, day);
   return date;
 };
@@ -34,8 +34,8 @@ const formatDate = (date, format = false) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = castDateFormat(date.getDate());
-  const hour = castDateFormat(randomInteger(0, 23));
-  const minute = castDateFormat(randomInteger(0, 59));
+  const hour = castDateFormat(getRandomInteger(0, 23));
+  const minute = castDateFormat(getRandomInteger(0, 59));
   if (format === `comment`) {
     return `${year}/${castDateFormat(month + 1)}/${day} ${hour}:${minute}`;
   }
@@ -51,4 +51,4 @@ const getRandomArray = (array) => {
   return array;
 };
 
-export {movieTime, randomInteger, getRandomCommentDate, getRandomArrayItem, getRandomDate, formatDate, getRandomArray};
+export {movieTime, getRandomInteger, getRandomCommentDate, getRandomArrayItem, getRandomDate, formatDate, getRandomArray};

@@ -1,7 +1,7 @@
 import {formatDate} from '../utils.js';
 
 export const createFullFilmDetailsTemplate = (film) => {
-  const {cardTitle, cardPoster, cardRating, alternativeTitle, ageRating, cardDirector, cardWriter, cardActor, cardDate, cardCountry, cardDuration, cardGenre, cardDescription} = film;
+  const {title, poster, rating, altTitle, ageRating, director, writer, actor, date, country, duration, genre, description} = film;
   return (`
   <section class="film-details">
     <form class="film-details__inner" action="" method="get">
@@ -11,54 +11,54 @@ export const createFullFilmDetailsTemplate = (film) => {
         </div>
         <div class="film-details__info-wrap">
           <div class="film-details__poster">
-            <img class="film-details__poster-img" src="./images/posters/${cardPoster}" alt="">
+            <img class="film-details__poster-img" src="./images/posters/${poster}" alt="">
             <p class="film-details__age">${ageRating}+</p>
           </div>
           <div class="film-details__info">
             <div class="film-details__info-head">
               <div class="film-details__title-wrap">
-                <h3 class="film-details__title">${cardTitle}</h3>
-                <p class="film-details__title-original">Original: ${alternativeTitle}</p>
+                <h3 class="film-details__title">${title}</h3>
+                <p class="film-details__title-original">Original: ${altTitle}</p>
               </div>
               <div class="film-details__rating">
-                <p class="film-details__total-rating">${cardRating}</p>
+                <p class="film-details__total-rating">${rating}</p>
               </div>
             </div>
             <table class="film-details__table">
               <tr class="film-details__row">
                 <td class="film-details__term">Director</td>
-                <td class="film-details__cell">${cardDirector}</td>
+                <td class="film-details__cell">${director}</td>
               </tr>
               <tr class="film-details__row">
                 <td class="film-details__term">Writers</td>
-                <td class="film-details__cell">${cardWriter}</td>
+                <td class="film-details__cell">${writer}</td>
               </tr>
               <tr class="film-details__row">
                 <td class="film-details__term">Actors</td>
-                <td class="film-details__cell">${cardActor}</td>
+                <td class="film-details__cell">${actor}</td>
               </tr>
               <tr class="film-details__row">
                 <td class="film-details__term">Release Date</td>
-                <td class="film-details__cell">${formatDate(cardDate, `date`)}</td>
+                <td class="film-details__cell">${formatDate(date, `date`)}</td>
               </tr>
               <tr class="film-details__row">
                 <td class="film-details__term">Runtime</td>
-                <td class="film-details__cell">${cardDuration}</td>
+                <td class="film-details__cell">${duration}</td>
               </tr>
               <tr class="film-details__row">
                 <td class="film-details__term">Country</td>
-                <td class="film-details__cell">${cardCountry}</td>
+                <td class="film-details__cell">${country}</td>
               </tr>
               <tr class="film-details__row">
                 <td class="film-details__term">Genres</td>
                 <td class="film-details__cell">
-                  <span class="film-details__genre">${cardGenre}</span>
+                  <span class="film-details__genre">${genre}</span>
                   <span class="film-details__genre"></span>
                   <span class="film-details__genre"></span></td>
               </tr>
             </table>
             <p class="film-details__film-description">
-              ${cardDescription}
+              ${description}
             </p>
           </div>
         </div>
