@@ -1,5 +1,5 @@
 const menuNames = [
-  `All movies`, `Watchlist`, `History`, `Favorites`, `Action`, `Comedy`, `Triller`
+  `All movies`, `Watchlist`, `History`, `Favorites`, `Action`, `Comedy`, `Thriller`
 ];
 
 const generateMenu = () => {
