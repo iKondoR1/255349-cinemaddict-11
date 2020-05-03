@@ -1,7 +1,7 @@
-import {formatDate} from '../utils.js';
+import {formatDate, createElement} from '../utils.js';
 
 
-export const createCommentElement = (comment) => {
+const createCommentElement = (comment) => {
   const {emoji, text, author, date} = comment;
   return (`
     <li class="film-details__comment">
@@ -19,3 +19,28 @@ export const createCommentElement = (comment) => {
     </li>
   `);
 };
+
+
+export default class Comment {
+  constructor(comment) {
+    this._comment = comment;
+
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createCommentElement(this._comment);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

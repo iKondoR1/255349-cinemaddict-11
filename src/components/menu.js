@@ -1,3 +1,5 @@
+import {createElement} from "../utils.js";
+
 const createMenuMarkup = (menu, isChecked) => {
   const {name, count} = menu;
   if (name === `All movies`) {
@@ -7,7 +9,7 @@ const createMenuMarkup = (menu, isChecked) => {
   }
 };
 
-export const createMenuTemplate = (menus) => {
+const createMenuTemplate = (menus) => {
   const menuMarkup = menus.map((it, i) => createMenuMarkup(it, i === 0)).join(`\n`);
 
   return `<nav class="main-navigation">
@@ -17,3 +19,28 @@ export const createMenuTemplate = (menus) => {
     <a href="#stats" class="main-navigation__additional">Stats</a>
   </nav>`;
 };
+
+
+export default class FilmCard {
+  constructor(menus) {
+    this._menus = menus;
+
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createMenuTemplate(this._menus);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

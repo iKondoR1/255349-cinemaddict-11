@@ -71,14 +71,14 @@ const generateFilmCards = () => {
       genre: getRandomArrayItem(GENRE),
       poster: getRandomArrayItem(POSTER),
       description: sliceLetters(generateDescription(DESCRIPTION)),
-      comments: getRandomInteger(0, 100),
+      comments: getRandomInteger(0, 5),
       altTitle: it,
       ageRating: getRandomArrayItem(AGE_RATING),
       director: getRandomArrayItem(DIRECTORS),
       writer: getRandomArrayItem(WRITERS) + `, ` + getRandomArrayItem(WRITERS) + `, ` + getRandomArrayItem(WRITERS),
       actor: getRandomArrayItem(ACTORS) + `, ` + getRandomArrayItem(ACTORS) + `, ` + getRandomArrayItem(ACTORS),
       date: getRandomCommentDate(),
-      country: getRandomArrayItem(COUNTRY),
+      country: getRandomArrayItem(COUNTRY)
     };
   });
 };

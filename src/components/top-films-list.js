@@ -1,3 +1,5 @@
+import {createElement} from "../utils.js";
+
 const createTopFilmCardContainerTemplate = (name) => {
   return `<section class="films-list--extra">
       <h2 class="films-list__title">${name}</h2>
@@ -8,5 +10,26 @@ const createTopFilmCardContainerTemplate = (name) => {
     </section>`;
 };
 
+export default class TopFilmCardContainer {
+  constructor(name) {
+    this._name = name;
 
-export {createTopFilmCardContainerTemplate};
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createTopFilmCardContainerTemplate(this._name);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

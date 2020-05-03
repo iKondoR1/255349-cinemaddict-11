@@ -21,13 +21,16 @@ const AUTHORS = [
   `Jane Sun`,
 ];
 
-export const generateComment = () => {
-  return AUTHORS.map((it) => {
-    return {
+const generateComment = () => ({
       emoji: getRandomArrayItem(EMOJI),
       text: getRandomArrayItem(COMMENTS),
-      author: it,
+      author: getRandomArrayItem(AUTHORS),
       date: getRandomCommentDate(),
-    };
   });
+
+
+export const generateComments = (count) => {
+  return new Array(count)
+    .fill(``)
+    .map(generateComment);
 };
