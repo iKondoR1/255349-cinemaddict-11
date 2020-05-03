@@ -8,6 +8,7 @@ import TopFilmCardContainerComponent from './components/top-films-list';
 import FooterStatisticsComponent from './components/footer-statistics';
 import FullFilmDetailsComponent from './components/full-film-details';
 import CommentComponent from './components/comment';
+import NoDataComponent from './components/no-data';
 import {generateMenu} from './mock/menu';
 import {generateFilmCards} from './mock/filmcards';
 import {generateComment} from './mock/comments';
@@ -96,6 +97,7 @@ const siteCardContainer = new CardContainerComponent();
 render(siteMainElement, siteCardContainer.getElement(), RenderPosition.BEFOREEND);
 
 const movies = generateFilmCards();
+
 renderBigList(siteCardContainer, movies);
 
 const topRatedList = sortObjectsByKey(movies, `rating`);
@@ -114,4 +116,11 @@ mostCommentedList.slice(0, 2)
 
 const footerStatistics = new FooterStatisticsComponent(movies.length);
 render(siteFooterElement, footerStatistics.getElement(), RenderPosition.BEFOREEND);
+
+console.log(movies.length)
+
+if (movies.length == 0) {
+	const noData = new NoDataComponent();
+	render(siteCardContainer.getElement(), noData.getElement(), RenderPosition.AFTERBEGIN);
+}
 
